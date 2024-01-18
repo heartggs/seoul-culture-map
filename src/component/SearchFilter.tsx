@@ -1,6 +1,5 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { DISTRICT_ARR } from "@/data/store";
-import { Dispatch, SetStateAction } from "react";
 import { useRecoilState } from "recoil";
 import { searchState } from "@/atom";
 
