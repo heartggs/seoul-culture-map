@@ -1,4 +1,4 @@
-import Layout from "@/component/Layout";
+import Layout from "@/components/Layout";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -19,7 +19,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <SessionProvider session={session}>
           <Layout>
             <Component {...pageProps} />
-            <ToastContainer />
+            <ToastContainer
+              autoClose={1000}
+              pauseOnFocusLoss={false}
+              pauseOnHover={false}
+            />
           </Layout>
           <ReactQueryDevtools />
         </SessionProvider>

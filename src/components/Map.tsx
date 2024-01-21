@@ -1,6 +1,6 @@
 /*global kakao*/
 import Script from "next/script";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useSetRecoilState, useRecoilValue } from "recoil";
 import { locationState, mapState } from "@/atom";
 
 declare global {

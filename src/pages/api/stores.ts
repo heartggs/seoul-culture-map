@@ -1,7 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { storeApiResponse, StoreType } from "@/interface";
+import { StoreApiResponse, StoreType } from "@/interface";
 import prisma from "@/db";
 import axios from "axios";
+
+import { getServerSession } from "next-auth";
+import { authOptions } from "./auth/[...nextauth]";
 
 interface Responsetype {
   page?: string;
@@ -13,11 +16,13 @@ interface Responsetype {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<storeApiResponse | StoreType[] | StoreType | null>
+  res: NextApiResponse<StoreApiResponse | StoreType[] | StoreType | null>
 ) {
   const { page = "", limit = "", q, district, id }: Responsetype = req.query;
+  const session = await getServerSession(req, res, authOptions);
+
   if (req.method === "POST") {
-    // 데이터 생성
+    // 데이터 생성을 처리한다
     const formData = req.body;
     const headers = {
       Authorization: `KakaoAK ${process.env.KAKAO_CLIENT_ID}`,
@@ -36,7 +41,7 @@ export default async function handler(
 
     return res.status(200).json(result);
   } else if (req.method === "PUT") {
-    // 데이터 수정
+    // 데이터 수정을 처리한다
     const formData = req.body;
     const headers = {
       Authorization: `KakaoAK ${process.env.KAKAO_CLIENT_ID}`,
@@ -96,9 +101,14 @@ export default async function handler(
         where: {
           id: id ? parseInt(id) : {},
         },
+        include: {
+          likes: {
+            where: session ? { userId: session.user.id } : {},
+          },
+        },
       });
 
-      // return res.status(200).json(id ? stores[0] : stores);
+      return res.status(200).json(id ? stores[0] : stores);
     }
   }
 }

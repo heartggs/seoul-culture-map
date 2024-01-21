@@ -3,10 +3,10 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
-import AddressSearch from "@/component/AddressSearch";
+import AddressSearch from "@/components/AddressSearch";
 import { StoreType } from "@/interface";
 import { useQuery } from "react-query";
-import Loader from "@/component/Loader";
+import Loader from "@/components/Loader";
 
 export default function StoreEditPage() {
   const router = useRouter();
