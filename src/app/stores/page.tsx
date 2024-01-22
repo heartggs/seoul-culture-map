@@ -1,6 +1,7 @@
-import React, { useRef, useEffect, useCallback, useState } from "react";
+"use client";
 
-import Image from "next/image";
+import React, { useRef, useEffect, useCallback } from "react";
+
 import { StoreType } from "@/interface";
 
 import { useInfiniteQuery } from "react-query";
@@ -12,7 +13,6 @@ import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 import Loader from "@/components/Loader";
 import SearchFilter from "@/components/SearchFilter";
 
-import { useRouter } from "next/router";
 import { searchState } from "@/atom";
 import { useRecoilValue } from "recoil";
 import StoreList from "@/components/StoreList";
