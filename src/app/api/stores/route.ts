@@ -5,7 +5,7 @@ import prisma from "@/db";
 import axios from "axios";
 
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...next]/route";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);

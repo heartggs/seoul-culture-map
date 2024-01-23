@@ -13,7 +13,6 @@ export const authOptions: NextAuthOptions = {
     updateAge: 60 * 60 * 2,
   },
   adapter: PrismaAdapter(prisma),
-
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID || "",
@@ -49,4 +48,5 @@ export const authOptions: NextAuthOptions = {
 };
 
 const handler = NextAuth(authOptions);
+
 export { handler as GET, handler as POST };
