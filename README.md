@@ -8,3 +8,12 @@
 ![1월 의 코딩_5](https://github.com/heartggs/seoul-culture-map/assets/87655082/99504608-d26c-4ca2-8dee-fd5f52974cd6)
 ![1월 의 코딩_6](https://github.com/heartggs/seoul-culture-map/assets/87655082/23dc7c61-ea5a-403c-8f09-126b5f160ae9)
 ![1월 의 코딩_7](https://github.com/heartggs/seoul-culture-map/assets/87655082/5e4f4569-2125-4920-aa44-8ef1631914e4)
+
+
+
+
+
+---
+#### 아쉬운점
+설치버전과 실습버전이 달라서 이미지 불러오는 것, 부분적으로 api불러오는 것을 실패하였다.
+다음에는 공공데이터를 이용하여 NEST.jS를 이용하여 페이지를 하나 만들어보고 싶다.
